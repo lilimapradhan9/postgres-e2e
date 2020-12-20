@@ -7,6 +7,8 @@ import {Drama} from "./db/entities/drama.entity";
 import test from "./config/test";
 import development from "./config/development";
 import {DramasModule} from "./dramas/dramas.module";
+import { HealthController } from './health/health.controller';
+import {TerminusModule} from "@nestjs/terminus";
 
 const _configs = {'development': development, 'default': test};
 
@@ -31,9 +33,10 @@ const _configs = {'development': development, 'default': test};
         };
       },
     }),
-    DramasModule
+    DramasModule,
+    TerminusModule
   ],
-  controllers: [AppController],
+  controllers: [AppController, HealthController],
   providers: [AppService, ConfigService],
 })
 export class AppModule {
