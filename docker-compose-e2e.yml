@@ -1,0 +1,37 @@
+version: "3"
+
+networks:
+    test_e2e:
+
+services:
+  app:
+    build:
+      context: .
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: >
+      sh -c "yarn test:e2e"
+    depends_on:
+      - 'test_postgres'
+    networks:
+      - test_e2e
+    environment:
+      - NODE_ENV=test
+
+  test_postgres:
+    image: postgres
+    container_name: 'test_postgres'
+    ports:
+      - '5432:5432'
+    networks:
+      - test_e2e
+    environment:
+      - POSTGRES_DB=e2e_db
+      - POSTGRES_PASSWORD=test_password
+      - POSTGRES_USER=test_user
+      - PGDATA=/var/lib/postgresql/data/test
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data/test
+    restart: always
+

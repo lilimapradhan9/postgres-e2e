@@ -7,7 +7,10 @@ export enum DramaLanguage {
 
 @Entity({name: 'dramas'})
 export class Drama {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn({
+    type: 'bigint',
+    name: 'id'
+  })
   id: number;
 
   @Column()

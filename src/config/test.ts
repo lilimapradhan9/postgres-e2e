@@ -3,10 +3,10 @@ export default () => ({
     port: 3000,
   },
   database: {
-    host: 'localhost',
+    host: 'test_postgres',
     port: 5432,
-    username: 'postgres',
-    password: 'password',
+    username: 'test_user',
+    password: 'test_password',
     database: 'e2e_db',
     synchronize: true
   }
