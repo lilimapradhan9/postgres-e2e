@@ -1,15 +1,21 @@
-import {Column} from "typeorm";
+import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
 
 export enum DramaLanguage {
   Hindi,
   English
 }
 
+@Entity({name: 'dramas'})
 export class Drama {
+  @PrimaryGeneratedColumn()
+  id: number;
+
   @Column()
   name: string;
+
   @Column()
   language: DramaLanguage;
+
   @Column('jsonb')
   description: any;
 

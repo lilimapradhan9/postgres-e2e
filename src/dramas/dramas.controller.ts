@@ -1,5 +1,5 @@
 import {Body, Controller, Get, Post} from '@nestjs/common';
-import {Drama, DramaLanguage} from "./entity/drama.entity";
+import {Drama} from "../db/entities/drama.entity";
 import {DramasService} from "./dramasService";
 import {Observable} from "rxjs";
 import {CreateDramaDto} from "./model/createDrama.dto";

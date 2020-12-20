@@ -1,7 +1,7 @@
 import {Test, TestingModule} from '@nestjs/testing';
 import {DramasController} from './dramas.controller';
 import {DramasService} from './dramasService';
-import {Drama, DramaLanguage} from './entity/drama.entity';
+import {Drama, DramaLanguage} from '../db/entities/drama.entity';
 
 describe('Dramas Controller', () => {
   let controller: DramasController;

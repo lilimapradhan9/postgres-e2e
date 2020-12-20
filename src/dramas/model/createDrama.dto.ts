@@ -1,4 +1,4 @@
-import {DramaLanguage} from "../entity/drama.entity";
+import {DramaLanguage} from "../../db/entities/drama.entity";
 
 export class CreateDramaDto {
   name: string;
