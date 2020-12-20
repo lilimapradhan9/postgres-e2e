@@ -23,11 +23,12 @@ const _configs = {'development': development, 'default': test};
           type: 'postgres',
           host: config.get('database.host'),
           port: config.get('database.port'),
-          username: config.get('database.username') as string,
+          username: config.get('database.username'),
           password: config.get('database.password'),
           database: config.get('database.database'),
           synchronize: config.get('database.synchronize'),
           entities: [Drama],
+          keepConnectionAlive: true
         };
       },
     }),
