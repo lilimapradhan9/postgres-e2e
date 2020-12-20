@@ -1,13 +1,11 @@
 import {Module} from '@nestjs/common';
-import {AppController} from './app.controller';
-import {AppService} from './app.service';
 import {TypeOrmModule} from '@nestjs/typeorm';
 import {ConfigModule, ConfigService} from "@nestjs/config";
 import {Drama} from "./db/entities/drama.entity";
 import test from "./config/test";
 import development from "./config/development";
 import {DramasModule} from "./dramas/dramas.module";
-import { HealthController } from './health/health.controller';
+import {HealthController} from './health/health.controller';
 import {TerminusModule} from "@nestjs/terminus";
 
 const _configs = {'development': development, 'default': test};
@@ -36,8 +34,8 @@ const _configs = {'development': development, 'default': test};
     DramasModule,
     TerminusModule
   ],
-  controllers: [AppController, HealthController],
-  providers: [AppService, ConfigService],
+  controllers: [HealthController],
+  providers: [ConfigService],
 })
 export class AppModule {
 }
